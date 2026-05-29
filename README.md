@@ -1,153 +1,105 @@
 # Expense Tracker
 
-A full-stack web application for tracking personal income and expenses with beautiful charts and analytics.
+A full-stack web application for tracking personal income and expenses with charts, analytics, user authentication, and profile management.
 
 ## Features
 
-- **User Authentication**: Secure login and registration system
-- **Expense Management**: Add, edit, and delete expenses with categories
-- **Income Tracking**: Record and manage income sources
-- **Dashboard Analytics**: Visual charts showing spending patterns and trends
-- **Profile Management**: User profile with photo upload capability
-- **Responsive Design**: Works on desktop and mobile devices
-- **Real-time Data**: Live updates and real-time statistics
+- Register and log in with JWT-based authentication
+- Add, edit, and delete expenses by category
+- Track income sources
+- View dashboard analytics and recent transactions
+- Upload and manage a profile photo
+- Export or work with spreadsheet-based financial data
+- Use the app from desktop or mobile layouts
 
 ## Tech Stack
 
-### Backend
-- **Node.js** - Runtime environment
-- **Express.js** - Web framework
-- **MongoDB** - Database
-- **Mongoose** - ODM for MongoDB
-- **JWT** - Authentication
-- **Multer** - File upload handling
-- **CORS** - Cross-origin resource sharing
-
-### Frontend
-- **React.js** - UI library
-- **Vite** - Build tool
-- **Recharts** - Chart library
-- **Axios** - HTTP client
-- **CSS3** - Styling
+- Backend: Node.js, Express, MongoDB, Mongoose, JWT, Multer, Cloudinary
+- Frontend: React, Vite, Recharts, Axios, Tailwind CSS
+- Utilities: xlsx, file-saver, dayjs, moment
 
 ## Project Structure
 
+```text
+.
+|-- Backend/
+|   |-- config/
+|   |-- controllers/
+|   |-- middleware/
+|   |-- models/
+|   |-- routes/
+|   |-- uploads/
+|   `-- server.js
+|-- Frontend/
+|   `-- MySpend/
+|       |-- src/
+|       |-- package.json
+|       `-- vite.config.js
+|-- LICENSE
+`-- README.md
 ```
-Expense Tracker/
-├── Backend/                 # Node.js/Express server
-│   ├── config/             # Database configuration
-│   ├── controllers/        # Route controllers
-│   ├── middleware/         # Custom middleware
-│   ├── models/            # MongoDB models
-│   ├── routes/            # API routes
-│   └── server.js          # Main server file
-├── Frontend/              # React application
-│   └── MySpend/          # React app directory
-│       ├── src/
-│       │   ├── components/ # React components
-│       │   ├── pages/      # Page components
-│       │   ├── context/    # React context
-│       │   └── Utils/      # Utility functions
-│       └── package.json
-└── README.md
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/AsimRaza10/Expense-Tracker.git
+cd Expense-Tracker
 ```
 
-## Installation
+Install backend dependencies:
 
-### Prerequisites
-- Node.js (v14 or higher)
-- MongoDB
-- Git
+```bash
+cd Backend
+npm install
+```
 
-### Backend Setup
-1. Navigate to the backend directory:
-   ```bash
-   cd Backend
-   ```
+Create `Backend/.env`:
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=replace-with-a-secure-secret
+PORT=5000
+```
 
-3. Create a `.env` file in the backend directory with your configuration:
-   ```
-   MONGODB_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
-   PORT=5000
-   ```
+Start the backend:
 
-4. Start the server:
-   ```bash
-   npm start
-   ```
+```bash
+npm run dev
+```
 
-### Frontend Setup
-1. Navigate to the frontend directory:
-   ```bash
-   cd Frontend/MySpend
-   ```
+Install frontend dependencies in another terminal:
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+cd Frontend/MySpend
+npm install
+```
 
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+Start the frontend:
 
-## Usage
+```bash
+npm run dev
+```
 
-1. Open your browser and go to `http://localhost:5173`
-2. Register a new account or login with existing credentials
-3. Start adding your income and expenses
-4. View analytics and charts on the dashboard
+Default local URLs:
 
-## API Endpoints
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:5000`
 
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/profile` - Get user profile
+## API Overview
 
-### Expenses
-- `GET /api/expenses` - Get all expenses
-- `POST /api/expenses` - Add new expense
-- `PUT /api/expenses/:id` - Update expense
-- `DELETE /api/expenses/:id` - Delete expense
-
-### Income
-- `GET /api/income` - Get all income
-- `POST /api/income` - Add new income
-- `PUT /api/income/:id` - Update income
-- `DELETE /api/income/:id` - Delete income
-
-### Dashboard
-- `GET /api/dashboard/stats` - Get dashboard statistics
-- `GET /api/dashboard/recent-transactions` - Get recent transactions
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- `POST /api/auth/register` - register a user
+- `POST /api/auth/login` - log in
+- `GET /api/auth/profile` - fetch the current profile
+- `GET /api/expenses` - list expenses
+- `POST /api/expenses` - create an expense
+- `PUT /api/expenses/:id` - update an expense
+- `DELETE /api/expenses/:id` - delete an expense
+- `GET /api/income` - list income records
+- `POST /api/income` - create an income record
+- `GET /api/dashboard/stats` - fetch dashboard stats
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Author
-
-**Asim Raza**
-- GitHub: [@AsimRaza10](https://github.com/AsimRaza10)
-
-## Acknowledgments
-
-- React.js community
-- MongoDB documentation
-- Express.js framework
-- Recharts library for beautiful charts
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
